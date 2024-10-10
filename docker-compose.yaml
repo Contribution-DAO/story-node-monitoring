@@ -60,5 +60,7 @@ services:
     volumes:
       - "grafana_data:/var/lib/grafana"
       - "./datasources:/etc/grafana/provisioning/datasources"
+      - "./dashboards:/etc/grafana/provisioning/dashboards"
     networks:
       - monitoring
+
