@@ -44,8 +44,6 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana
-    ports:
-      - "3000:3000"
     restart: unless-stopped
     network_mode: host
     environment:
@@ -56,4 +54,6 @@ services:
       - "grafana_data:/var/lib/grafana"
       - "./datasources:/etc/grafana/provisioning/datasources"
       - "./dashboards:/etc/grafana/provisioning/dashboards"
+    expose:
+      - 3000
 
