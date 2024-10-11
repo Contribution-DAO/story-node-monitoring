@@ -78,7 +78,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "max(cometbft_consensus_latest_block_height{chain_id=\"iliad-0\"})",
+          "expr": "max(${namespace}_consensus_latest_block_height{chain_id=\"iliad-0\"})",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -149,7 +149,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "cometbft_consensus_total_txs{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_total_txs{chain_id=\"iliad-0\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -220,7 +220,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "max(increase(cometbft_consensus_latest_block_height{chain_id=\"iliad-0\"}[10m])) / 10",
+          "expr": "max(increase(${namespace}_consensus_latest_block_height{chain_id=\"iliad-0\"}[10m])) / 10",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -291,7 +291,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "cometbft_consensus_validators_power{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_validators_power{chain_id=\"iliad-0\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -370,7 +370,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_p2p_peers{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_p2p_peers{chain_id=\"iliad-0\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -445,7 +445,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_mempool_size{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_mempool_size{chain_id=\"iliad-0\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -542,7 +542,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_consensus_quorum_prevote_delay{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_quorum_prevote_delay{chain_id=\"iliad-0\"}",
           "instant": false,
           "legendFormat": "{{proposer_address}}",
           "range": true,
@@ -640,7 +640,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "cometbft_consensus_validators{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_validators{chain_id=\"iliad-0\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -655,7 +655,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_consensus_missing_validators{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_missing_validators{chain_id=\"iliad-0\"}",
           "hide": false,
           "instant": false,
           "legendFormat": "Missing",
@@ -668,7 +668,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_consensus_byzantine_validators{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_byzantine_validators{chain_id=\"iliad-0\"}",
           "hide": false,
           "instant": false,
           "legendFormat": "Byzantine",
@@ -767,7 +767,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "cometbft_consensus_validators_power{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_validators_power{chain_id=\"iliad-0\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -782,7 +782,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_consensus_missing_validators_power{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_missing_validators_power{chain_id=\"iliad-0\"}",
           "hide": false,
           "instant": false,
           "legendFormat": "Missing",
@@ -795,7 +795,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_consensus_byzantine_validators_power{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_byzantine_validators_power{chain_id=\"iliad-0\"}",
           "hide": false,
           "instant": false,
           "legendFormat": "Byzantine",
@@ -893,7 +893,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_consensus_block_size_bytes{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_block_size_bytes{chain_id=\"iliad-0\"}",
           "instant": false,
           "legendFormat": "Block Size",
           "range": true,
@@ -990,7 +990,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_consensus_num_txs{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_num_txs{chain_id=\"iliad-0\"}",
           "instant": false,
           "legendFormat": "Block Size",
           "range": true,
@@ -1084,7 +1084,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_p2p_peer_receive_bytes_total{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_p2p_peer_receive_bytes_total{chain_id=\"iliad-0\"}",
           "instant": false,
           "legendFormat": "{{peer_id}}",
           "range": true,
@@ -1178,7 +1178,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "cometbft_p2p_peer_send_bytes_total{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_p2p_peer_send_bytes_total{chain_id=\"iliad-0\"}",
           "instant": false,
           "legendFormat": "{{peer_id}}",
           "range": true,
@@ -1193,7 +1193,28 @@
   "schemaVersion": 39,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "cometbft",
+          "value": "cometbft"
+        },
+        "hide": 0,
+        "label": "Namespace",
+        "name": "namespace",
+        "options": [
+          {
+            "selected": true,
+            "text": "cometbft",
+            "value": "cometbft"
+          }
+        ],
+        "query": "cometbft",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -1203,6 +1224,6 @@
   "timezone": "browser",
   "title": "Story Dashboard",
   "uid": "de0gucezp3klcb",
-  "version": 9,
+  "version": 2,
   "weekStart": ""
 }
