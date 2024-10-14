@@ -522,7 +522,7 @@
         "x": 12,
         "y": 4
       },
-      "id": 15,
+      "id": 16,
       "options": {
         "legend": {
           "calcs": [],
@@ -541,15 +541,19 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
+          "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "${namespace}_consensus_quorum_prevote_delay{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_validators{chain_id=\"iliad-0\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
           "instant": false,
-          "legendFormat": "{{proposer_address}}",
+          "legendFormat": "Validators",
           "range": true,
-          "refId": "A"
+          "refId": "A",
+          "useBackend": false
         }
       ],
-      "title": "Prevote Delay",
+      "title": "Active Sets",
       "type": "timeseries"
     },
     {
@@ -746,7 +750,7 @@
         "x": 12,
         "y": 12
       },
-      "id": 7,
+      "id": 15,
       "options": {
         "legend": {
           "calcs": [],
@@ -765,45 +769,15 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "${namespace}_consensus_validators_power{chain_id=\"iliad-0\"}",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
+          "expr": "${namespace}_consensus_quorum_prevote_delay{chain_id=\"iliad-0\"}",
           "instant": false,
-          "legendFormat": "Online",
+          "legendFormat": "{{proposer_address}}",
           "range": true,
-          "refId": "A",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "${namespace}_consensus_missing_validators_power{chain_id=\"iliad-0\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "Missing",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "${namespace}_consensus_byzantine_validators_power{chain_id=\"iliad-0\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "Byzantine",
-          "range": true,
-          "refId": "C"
+          "refId": "A"
         }
       ],
-      "title": "Voting Power",
+      "title": "Prevote Delay",
       "type": "timeseries"
     },
     {
@@ -923,7 +897,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 30,
+            "fillOpacity": 0,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -970,7 +944,7 @@
         "x": 12,
         "y": 20
       },
-      "id": 9,
+      "id": 7,
       "options": {
         "legend": {
           "calcs": [],
@@ -989,15 +963,45 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
+          "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "${namespace}_consensus_num_txs{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_validators_power{chain_id=\"iliad-0\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
           "instant": false,
-          "legendFormat": "Block Size",
+          "legendFormat": "Online",
           "range": true,
-          "refId": "A"
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "${namespace}_consensus_missing_validators_power{chain_id=\"iliad-0\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Missing",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "${namespace}_consensus_byzantine_validators_power{chain_id=\"iliad-0\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Byzantine",
+          "range": true,
+          "refId": "C"
         }
       ],
-      "title": "Transactions",
+      "title": "Voting Power",
       "type": "timeseries"
     },
     {
@@ -1111,6 +1115,103 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 30,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 28
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "${namespace}_consensus_num_txs{chain_id=\"iliad-0\"}",
+          "instant": false,
+          "legendFormat": "Block Size",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Transactions",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
             "fillOpacity": 80,
             "gradientMode": "none",
             "hideFrom": {
@@ -1147,7 +1248,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 28
+        "y": 36
       },
       "id": 14,
       "options": {
@@ -1224,6 +1325,6 @@
   "timezone": "browser",
   "title": "Story Dashboard",
   "uid": "de0gucezp3klcb",
-  "version": 3,
+  "version": 2,
   "weekStart": ""
 }
