@@ -665,19 +665,6 @@
           "legendFormat": "Missing",
           "range": true,
           "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "${namespace}_consensus_byzantine_validators{chain_id=\"iliad-0\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "Byzantine",
-          "range": true,
-          "refId": "C"
         }
       ],
       "title": "Validators",
@@ -750,7 +737,7 @@
         "x": 12,
         "y": 12
       },
-      "id": 7,
+      "id": 17,
       "options": {
         "legend": {
           "calcs": [],
@@ -769,45 +756,16 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "${namespace}_consensus_validators_power{chain_id=\"iliad-0\"}",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "Online",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "${namespace}_consensus_missing_validators_power{chain_id=\"iliad-0\"}",
+          "expr": "${namespace}_consensus_missing_validators{chain_id=\"iliad-0\"}",
           "hide": false,
           "instant": false,
           "legendFormat": "Missing",
           "range": true,
           "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "${namespace}_consensus_byzantine_validators_power{chain_id=\"iliad-0\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "Byzantine",
-          "range": true,
-          "refId": "C"
         }
       ],
-      "title": "Voting Power",
+      "title": "Block Missed",
       "type": "timeseries"
     },
     {
@@ -1040,6 +998,6 @@
   "timezone": "browser",
   "title": "Story Dashboard",
   "uid": "de0gucezp3klcb",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
